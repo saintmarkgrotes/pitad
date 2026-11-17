@@ -30,14 +30,20 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
-.env*.local
+# environment and secrets (the template stays tracked)
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
 
 example
 
-# generated native folders
-/ios
-/android
+# generated native folders (any depth, so apps/mobile/ios is covered)
+ios/
+android/
+
+# local data
+infra/docker/data/
+uploads/
