@@ -1,0 +1,7 @@
+{
+  "name": "@pitad/config",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Shared tsconfig presets.",
+  "files": ["tsconfig.base.json", "tsconfig.lib.json"]
+}
