@@ -16,5 +16,12 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
+  ],
+  // app-tabs.web.tsx is a web-only template file with a TS2322 `ref` error on Expo SDK 58
+  // (it also fails in the untouched template). We target iOS/Android. Remove this entry
+  // when the file is replaced or deleted.
+  "exclude": [
+    "node_modules",
+    "src/components/app-tabs.web.tsx"
   ]
 }
