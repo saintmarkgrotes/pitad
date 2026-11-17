@@ -35,12 +35,15 @@ npx tsc --noEmit
 
 Add Expo-managed packages with `npx expo install <package>` from `apps/mobile`. Add workspace packages (such as `@pitad/shared`) by editing `package.json` and running `npm install` from the root.
 
-## 4. Development build on a real phone (Phase 1 exit criterion)
+## 4. Run the API (NestJS)
 
 ```bash
-cd apps/mobile
-npx expo run:android    # needs Android Studio / SDK and a device with USB debugging
-npx expo run:ios        # needs a Mac with Xcode
+npm run start:dev -w @pitad/api     # from the repo root
+```
+
+Check it: `GET http://localhost:3000/api/v1/health`.
+
+To reach it from a phone, use your computer's LAN IP instead of `localhost`, and allow Node through the Windows firewall when prompted.
 ```
 
 ## Troubleshooting
