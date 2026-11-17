@@ -3,7 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "description": "Running and fitness app: GPS tracking, analytics, training plans, social.",
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "typecheck": "npm run typecheck --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
@@ -13,5 +16,8 @@
     "db:up": "docker compose -f infra/docker/docker-compose.yml --env-file .env up -d",
     "db:down": "docker compose -f infra/docker/docker-compose.yml --env-file .env down",
     "db:logs": "docker compose -f infra/docker/docker-compose.yml --env-file .env logs -f"
+  },
+  "devDependencies": {
+    "prettier": "^3.10.1"
   }
 }
