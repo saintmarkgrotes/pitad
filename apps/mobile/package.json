@@ -42,5 +42,4 @@
     "typecheck": "tsc --noEmit"
   },
   "private": true
-  
 }
