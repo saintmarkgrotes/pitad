@@ -6,3 +6,4 @@ coverage
 package-lock.json
 apps/mobile/ios
 apps/mobile/android
+apps/api/src/generated

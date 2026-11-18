@@ -47,3 +47,6 @@ android/
 # local data
 infra/docker/data/
 uploads/
+
+# prisma generated client
+apps/api/src/generated/
