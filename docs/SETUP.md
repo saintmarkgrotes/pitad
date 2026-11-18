@@ -37,14 +37,14 @@ Add Expo-managed packages with `npx expo install <package>` from `apps/mobile`. 
 
 ## 4. Run the API (NestJS)
 
+After cloning or pulling schema changes, generate the Prisma client and apply migrations:
+
 ```bash
-npm run start:dev -w @pitad/api     # from the repo root
+npm run prisma:generate -w @pitad/api
+npm run prisma:migrate -w @pitad/api
 ```
 
-Check it: `GET http://localhost:3000/api/v1/health`.
-
-To reach it from a phone, use your computer's LAN IP instead of `localhost`, and allow Node through the Windows firewall when prompted.
-```
+The generated client (`apps/api/src/generated/`) is git-ignored, so `tsc` fails until you run `prisma:generate`.
 
 ## Troubleshooting
 
