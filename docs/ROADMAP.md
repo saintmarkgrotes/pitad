@@ -2,18 +2,18 @@
 
 Each phase ends with a Phase Completion Report and a stop for approval.
 
-| Phase | Name                          | Status                                       |
-| ----- | ----------------------------- | -------------------------------------------- |
-| 0     | Planning and repository audit | Done                                         |
-| 1     | Project foundation            | Done                                         |
-| 2     | Database and authentication   | Not started                                  |
-| 3     | GPS tracking engine           | Not started                                  |
-| 4     | Activity management           | Not started                                  |
-| 5     | Running analytics             | Not started                                  |
-| 6     | Social features               | Not started                                  |
-| 7     | Training and pacing system    | Not started                                  |
-| 8     | Leaderboards and challenges   | Not started                                  |
-| 9     | Production preparation        | Not started                                  |
+| Phase | Name                          | Status      |
+| ----- | ----------------------------- | ----------- |
+| 0     | Planning and repository audit | Done        |
+| 1     | Project foundation            | Done        |
+| 2     | Database and authentication   | Not started |
+| 3     | GPS tracking engine           | Not started |
+| 4     | Activity management           | Not started |
+| 5     | Running analytics             | Not started |
+| 6     | Social features               | Not started |
+| 7     | Training and pacing system    | Not started |
+| 8     | Leaderboards and challenges   | Not started |
+| 9     | Production preparation        | Not started |
 
 ## Decisions (see Phase 0 report)
 
