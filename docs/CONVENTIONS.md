@@ -3,7 +3,8 @@
 ## TypeScript
 
 - Strict mode everywhere (`packages/config/tsconfig.base.json`), plus `noUncheckedIndexedAccess`.
-- Application code is `.ts` / `.tsx` only. JavaScript is allowed only for tooling configs that require it (for example `eslint.config.mjs`).
+- Application code is `.ts` / `.tsx` by default. JavaScript is allowed for tooling, config files and small scripts. Shared packages (`packages/*`) and the API stay in TypeScript.
+- `packages/shared` is compiled with `tsc` to `dist`, and both apps import the compiled output, so its source uses `.js` extensions in relative imports. Run `npm run build:shared` after pulling changes (the root `typecheck`, `lint` and `test` scripts do it for you).
 - No `any`. If unavoidable, add a comment on the same line explaining why, and prefer `unknown` plus a type guard.
 - No non-null assertions (`!`) and avoid `as` casts. Validate external data (API responses, storage, location events) with Zod instead.
 - API contracts live in `packages/shared`. Both apps import from there; never duplicate a type.
