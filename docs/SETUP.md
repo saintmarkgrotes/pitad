@@ -63,3 +63,4 @@ To reach it from a phone, use your computer's LAN IP instead of `localhost`, and
 - **Compose says a variable is missing:** you did not copy `.env.example` to `.env`.
 - **Metro can't resolve `@pitad/shared`:** run `npx expo start --clear` from `apps/mobile`, then check `npm why react-native` for duplicate versions.
 - **Phone cannot reach the API:** use your computer's LAN IP, not `localhost`.
+- **`tsc` reports TS2307 / TS2882 for `.css` imports:** `expo-env.d.ts` is generated and git-ignored. Run `npx expo start` once in `apps/mobile` (then stop it) and re-run `tsc`.
