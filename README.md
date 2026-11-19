@@ -15,7 +15,7 @@ Built incrementally in phases. See `docs/ROADMAP.md`.
 ```
 apps/
   mobile/       Expo app
-  api/          NestJS API (Phase 1, next)
+  api/          NestJS API
 packages/
   config/       Shared tsconfig presets
   shared/       Types and constants used by both apps
