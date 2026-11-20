@@ -14,5 +14,67 @@ model User {
   createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
   updatedAt    DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
 
+  profile       Profile?
+  settings      UserSettings?
+  refreshTokens RefreshToken[]
+
   @@map("users")
+}
+
+enum UnitSystem {
+  METRIC
+  IMPERIAL
+
+  @@map("unit_system")
+}
+
+enum Visibility {
+  PRIVATE
+  FOLLOWERS
+  PUBLIC
+
+  @@map("visibility")
+}
+
+model Profile {
+  userId      String   @id @map("user_id") @db.Uuid
+  displayName String   @map("display_name") @db.VarChar(50)
+  bio         String?  @db.VarChar(280)
+  avatarUrl   String?  @map("avatar_url")
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("profiles")
+}
+
+model UserSettings {
+  userId                    String     @id @map("user_id") @db.Uuid
+  units                     UnitSystem @default(METRIC)
+  defaultActivityVisibility Visibility @default(PRIVATE) @map("default_activity_visibility")
+  createdAt                 DateTime   @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt                 DateTime   @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_settings")
+}
+
+model RefreshToken {
+  id              String    @id
+  familyId        String    @map("family_id")
+  userId          String    @map("user_id") @db.Uuid
+  createdAt       DateTime  @map("created_at") @db.Timestamptz(3)
+  expiresAt       DateTime  @map("expires_at") @db.Timestamptz(3)
+  familyExpiresAt DateTime  @map("family_expires_at") @db.Timestamptz(3)
+  usedAt          DateTime? @map("used_at") @db.Timestamptz(3)
+  revoked         Boolean   @default(false)
+  claims          Json?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([familyId])
+  @@index([userId])
+  @@map("refresh_tokens")
 }
