@@ -1,6 +1,7 @@
 import * as z from 'zod';
 
 const envSchema = z.object({
+  JWT_SECRET: z.string().min(32, 'must be at least 32 characters'),
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   // Env vars are always strings, so coerce converts "3000" to the number 3000.
   PORT: z.coerce.number().int().min(1).max(65535).default(3000),

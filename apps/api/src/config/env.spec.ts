@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 
 import { validateEnv } from './env.js';
 
-const validEnv = { DATABASE_URL: 'postgresql://pitad:secret@localhost:5432/pitad' };
+const validEnv = { 
+  DATABASE_URL: 'postgresql://pitad:secret@localhost:5432/pitad',
+  JWT_SECRET: 'x'.repeat(32), };
 
 describe('validateEnv', () => {
   it('applies defaults for NODE_ENV and PORT', () => {
@@ -27,4 +29,9 @@ describe('validateEnv', () => {
   it('rejects an out-of-range PORT', () => {
     expect(() => validateEnv({ ...validEnv, PORT: '70000' })).toThrow(/PORT/);
   });
+
+  it('rejects a JWT_SECRET shorter than 32 characters', () => {
+    expect(() => validateEnv({ ...validEnv, JWT_SECRET: 'short' })).toThrow(/JWT_SECRET/);
+  });
+
 });
