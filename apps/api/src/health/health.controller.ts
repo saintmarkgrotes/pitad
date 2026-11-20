@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import type { ApiSuccess } from '@pitad/shared';
 
 import { HealthService, type HealthStatus } from './health.service.js';
 
@@ -7,7 +8,7 @@ export class HealthController {
   constructor(private readonly healthService: HealthService) {}
 
   @Get()
-  check(): { data: HealthStatus } {
+  check(): ApiSuccess<HealthStatus> {
     return { data: this.healthService.getStatus() };
   }
 }
